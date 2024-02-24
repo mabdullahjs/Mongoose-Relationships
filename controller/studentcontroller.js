@@ -54,20 +54,20 @@ const updateStudent = async (req, res) => {
   }
 };
 
-// const deleteCourse = async (req, res) => {
-//   const { id } = req.params;
+const deleteCourse = async (req, res) => {
+  const { id } = req.params;
 
-//   if (!mongoose.Types.ObjectId.isValid(id)) {
-//     return res.json({ error: "No such Course" });
-//   }
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.json({ error: "No such Course" });
+  }
 
-//   const Courses = await Course.findOneAndDelete({ _id: id });
+  const Courses = await Course.findOneAndDelete({ _id: id });
 
-//   if (!Courses) {
-//     return res.json({ error: "No such Course" });
-//   }
+  if (!Courses) {
+    return res.json({ error: "No such Course" });
+  }
 
-//   res.json(Courses);
-// };
+  res.json(Courses);
+};
 
 module.exports = { addStudent, getStudent, updateStudent, getStudentById }
